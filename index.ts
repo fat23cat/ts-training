@@ -55,3 +55,28 @@ type Test = Optional<{ a: string; b: number }>;
 
 // 3
 type Picked = Pick<{ a: number; b: number }, 'a'>;
+
+// switch
+enum Flower {
+  Rose,
+  Rhododendron,
+  Violet,
+  Daisy,
+}
+
+const flowerLatinName = (flower: Flower) => {
+  switch (flower) {
+    case Flower.Rose:
+      return "Rosa rubiginosa";
+    case Flower.Rhododendron:
+      return "Rhododendron ferrugineum";
+    case Flower.Violet:
+      return "Viola reichenbachiana";
+    case Flower.Daisy:
+      return "Bellis perennis";
+
+    default:
+      const _exhaustiveCheck: never = flower;
+      return _exhaustiveCheck;
+  }
+};
